@@ -35,11 +35,10 @@ export class ListMin extends Component {
                 <Link className="btn btn-primary" to={`${this.props.list}/update/${row.id}`}>
                     Editar
                 </Link>
-                <button className="btn btn-danger" onClick={()=>
-                    {
-                        this.props.service.delete(row.id);
-                        this.props.history.push(`/refresh${this.props.location.pathname}`);
-                    } 
+                <button className="btn btn-danger" onClick={() => {
+                    this.props.service.delete(row.id);
+                    this.props.history.push(`/refresh${this.props.location.pathname}`);
+                }
                 }>
                     Excluir
                 </button>
@@ -49,7 +48,7 @@ export class ListMin extends Component {
     dataList() {
         return this.props.data.map(element => this.createRow(element));
     }
-    
+
     render() {
         if (this.props.data.length === 0) {
             return (
