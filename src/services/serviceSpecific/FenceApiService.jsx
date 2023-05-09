@@ -25,6 +25,11 @@ export default class FenceApiService extends ApiService{
         return this.get(`/${id}`);
     }
 
+    findByName(params){
+        console.log("Entrou no findByName");
+        return this.get(`/${params}`);
+    }
+
     find(config){
         return this.get('', config);
     }

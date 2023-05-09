@@ -40,7 +40,7 @@ class BraceletList extends React.Component {
             params = `search?name=${this.state.name}`;
         }
         await this.service.findByName(params).then(response => {
-            const bracelets = response.data;
+            const bracelets = response.data.content;
             this.setState({ bracelets });
         }).catch(error => {
         });
@@ -96,7 +96,10 @@ class BraceletList extends React.Component {
                                                                 }
                                                             }
                                                         >
-                                                            <button type="submit" className='btn btn-success'>Buscar</button>
+                                                            <button type="submit" className='btn btn-success' onClick={(e)=>{
+                                                                this.find();
+                                                            }} >Buscar
+                                                            </button>
                                                         </div>
                                                     </fieldset>
                                                 </form>

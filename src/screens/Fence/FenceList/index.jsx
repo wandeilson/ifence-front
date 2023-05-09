@@ -41,8 +41,8 @@ class FenceList extends Component {
             params = `search?name=${this.state.name}`;
         }
         await this.service.findByName(params).then(response => {
-            const bracelets = response.data;
-            this.setState({ bracelets });
+            const fences = response.data.content;
+            this.setState({ fences });
         }).catch(error => {
         });
         
@@ -88,7 +88,12 @@ class FenceList extends Component {
                                                                 }
                                                             }
                                                         >
-                                                            <button type="submit" className='btn btn-success'>Buscar</button>
+                                                            <button type="submit" className='btn btn-success' onClick={(e)=>{
+                                                                this.find();
+
+                                                            }} >Buscar
+                                                            
+                                                            </button>
                                                         </div>
                                                     </fieldset>
                                                 </form>
