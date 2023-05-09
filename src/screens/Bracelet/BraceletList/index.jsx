@@ -50,6 +50,7 @@ class BraceletList extends React.Component {
     delete = (id) => {
         this.service.delete(id)
         .catch(error => {
+            console.log("Dentro do error.");
         })
     }
 
