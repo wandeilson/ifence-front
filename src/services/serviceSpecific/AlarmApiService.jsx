@@ -1,8 +1,8 @@
 import {ApiService} from "..";
 
-export default class FenceApiService extends ApiService{
+export default class AlarmApiService extends ApiService{
     constructor(){
-        super('/fences');
+        super('/alarms');
     }
 
     create(object){
@@ -11,10 +11,6 @@ export default class FenceApiService extends ApiService{
 
     update(id, object){
         return this.put(`/${id}`, object);
-    }
-
-    statusActive(id, object){
-        return this.patch(`/${id}`, object);
     }
 
     delete(id){

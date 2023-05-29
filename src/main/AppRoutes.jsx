@@ -12,7 +12,9 @@ import { BraceletCreate, BraceletDetails, BraceletList, BraceletUpdate } from '.
 import { FenceBraceletRegister, FenceCreate, FenceDetails, FenceList, FenceUpdate } from '../screens/Fence';
 // USER
 import { UserCreate, UserLogin, UserProfile, UserUpdate } from '../screens/User';
+// teste 
 
+import Test from 'screens/Tests/test';
 function AppRoutes(props){
     const isAuthenticated = props.isAuthenticated;
 
@@ -23,6 +25,9 @@ function AppRoutes(props){
             <Switch>
                 <Route path={["/home", "/"]} exact>
                     <HomePage/>
+                </Route>
+                <Route path={["/notifications"]} exact>
+                    <Test/>
                 </Route>
                 <RestrictedRoute show={!isAuthenticated} path={["/signIn","/createUser", "/users/create"]} redirectTo="/profile">
                     <UserCreate/>
@@ -36,6 +41,7 @@ function AppRoutes(props){
                 <RestrictedRoute show={isAuthenticated} path={["/updateUser", "/users/update"]} exact >
                     <UserUpdate />
                 </RestrictedRoute>
+
 
                 <RestrictedRoute show={isAuthenticated} path={["/createBracelet", "/bracelets/create"]} exact >
                     <BraceletCreate />

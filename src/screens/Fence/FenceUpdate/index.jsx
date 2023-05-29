@@ -106,7 +106,7 @@ class FenceUpdate extends React.Component {
 
     update = async () => {
         await this.service.update(this.props.match.params.id, this.getFence() ).then(response => {
-            showSuccessMessage('', 'Cerca atualizada com sucesso!');
+            showSuccessMessage('', 'Pulseira atualizada com sucesso!');
             this.props.history.push("/profile");
         }).catch(error => {
             error.response.data.errors.forEach(error => {showErrorMessage('', error.messageUser)});
