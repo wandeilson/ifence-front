@@ -274,7 +274,14 @@ class FenceCreate extends Component {
                                                                     }
                                                                     
                                                                     />
+
                                                             </FormGroup>
+
+                                                            <FormGroup label='Cerca móvel'>
+                                                                <h1></h1>
+                                                            <input type='checkbox' />
+                                                                
+                                                                 </FormGroup>                                                                     
                                                         </div>
                                                         <br />
                                                         <div className="buttons-wrapper"

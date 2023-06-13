@@ -72,7 +72,7 @@ class UserLogin extends React.Component {
                                                                 title="Deve seguir o padrão de email, exemplo: adriano.oliveira@protonmail.com"
                                                                 value={this.state.email} onChange={(e) =>
                                                                     {
-                                                                        if(e.target.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)){
+                                                                        if(e.target.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
                                                                             switchValidation(e.target, true);
                                                                         } else{
                                                                             switchValidation(e.target, false);
@@ -89,7 +89,7 @@ class UserLogin extends React.Component {
                                                                 title="Senha entre 8 e 30 caracteres."
                                                                 onChange={(e) =>
                                                                     {
-                                                                        if(e.target.value.length > 8 && e.target.value.length < 30){
+                                                                        if(e.target.value.length >= 8 && e.target.value.length < 30){
                                                                             switchValidation(e.target, true);
                                                                         } else{
                                                                             switchValidation(e.target, false);

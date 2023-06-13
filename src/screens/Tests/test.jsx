@@ -4,8 +4,6 @@ import ListTable from 'components/ListTable';
 import AlarmApiService from 'services/serviceSpecific/AlarmApiService';
 import Card from 'components/Card';
 
-
-
 class Test extends Component{
 
     constructor(){
@@ -31,6 +29,7 @@ class Test extends Component{
         }).catch(error => {
         });
     }
+    
 
     find = async () => {
         var params = '';
@@ -38,7 +37,7 @@ class Test extends Component{
         if (this.state.name !== '') {
             params = `search?name=${this.state.name}`;
         }
-        await this.service.findByName(params).then(response => {
+        await this.service.find(params).then(response => {
             const alarms = response.data;
             this.setState({ alarms });
         }).catch(error => {

@@ -21,8 +21,8 @@ export default class AlarmApiService extends ApiService{
         return this.get(`/${id}`);
     }
 
-    find(config){
-        return this.get('', config);
+    find(){
+        return this.get('','','');
     }
 
 }
