@@ -16,10 +16,12 @@ class FenceCreate extends Component {
 
 
     constructor(props) {
+        
         super(props);
         this.state = {
+            
             name: '',
-            radius: 1,
+            radius: 15,
             coordinate :{
                 latitude: null,
                 longitude: null
@@ -42,6 +44,21 @@ class FenceCreate extends Component {
         this.setState({coordinate});
     }
 
+    successCallback = (position) => {
+        this.setState({
+            coordinate:{
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude
+            }
+        })
+        console.log(position);
+      };
+
+
+    errorCallback = (error) => {
+        console.log(error);
+    };
+
     getFence(){
         return {
             name: this.state.name,
@@ -59,7 +76,10 @@ class FenceCreate extends Component {
         this.setState({show: false});
     }
     showModal = () => {
+        navigator.geolocation.getCurrentPosition(this.successCallback, this.errorCallback);
+        
         this.setState({show: true});
+
     }
 
     async create() {
@@ -126,9 +146,11 @@ class FenceCreate extends Component {
         switchValidation(finishTimeElement, true);
     }
 
-    render() {
+    render() { 
+        navigator.geolocation.getCurrentPosition(this.successCallback, this.errorCallback);
         return (
             <>
+            
                 <div className='conteiner'>
                     <div className='row'>
                         <div className='col-md-6 userRegister'
@@ -149,18 +171,24 @@ class FenceCreate extends Component {
                                                             this.create()
                                                         }
                                                     }
+                                                    
                                                 >
                                                     <fieldset>
+                                                        
                                                         <FormGroup label='Nome: *' htmlFor='name'>
+                                                            
                                                             <input type='text' className='form-control' id='name'
                                                                 placeholder='Nome da Cerca'
+                                                                
                                                                 value={this.state.name} onChange={(e) =>{
+                                                                    
                                                                         if(e.target.value.length >= 1 && e.target.value.length <= 50){
                                                                             switchValidation(e.target, true);
                                                                         } else{
                                                                             switchValidation(e.target, false);
                                                                         }
                                                                         this.setState({ name: e.target.value })
+                                                                    
                                                                     }
                                                                 } 
                                                                 data-bs-toggle="tooltip" data-bs-placement="left"
@@ -246,7 +274,14 @@ class FenceCreate extends Component {
                                                                     }
                                                                     
                                                                     />
+
                                                             </FormGroup>
+
+                                                            <FormGroup label='Cerca móvel'>
+                                                                <h1></h1>
+                                                            <input type='checkbox' />
+                                                                
+                                                                 </FormGroup>                                                                     
                                                         </div>
                                                         <br />
                                                         <div className="buttons-wrapper"

@@ -43,6 +43,7 @@ function Navbar(props) {
                                 <NavItem render={true} className="dropdown-item" href="/fences/create" label="Cadastrar Cerca"/>
                                 <NavItem render={true} className="dropdown-item" href="/fences" label="Listar Cercas"/>
                             </NavDropdown>
+                            <NavItem render={true} href="/notifications" label="Notificações"/>
                             <NavItem render={isAuthenticated} href="/profile" label="Perfil" />
                         </>
                         }

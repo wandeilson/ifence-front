@@ -1,12 +1,12 @@
 import Card from 'components/Card';
 import { Container } from 'components/Container';
-import GoBack from 'components/GoBack';
 import PageNotFound from 'components/PageNotFound';
 import { showErrorMessage } from 'components/Toastr';
 import { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { BraceletApiService, FenceApiService, FenceBraceletApiService } from 'services';
+import GoBack from 'components/GoBack';
 
 class FenceBraceletRegister extends Component {
 
@@ -125,6 +125,10 @@ class FenceBraceletRegister extends Component {
                     </Card>
                     <GoBack/>
                 </Container>
+
+
+
+
 
             </>
         );
